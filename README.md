@@ -1,4 +1,5 @@
-![alt text](http://www.maiortorcida.com/media/galeria/149/6/7/1/1/n_flamengo_escudo-9741176.png)
+Inline-style:
+![alt text](http://www.maiortorcida.com/media/galeria/149/6/7/1/1/n_flamengo_escudo-9741176.png =50x50)
 #Commands (work in progress)
 | Command       | Output        |
 | ------------- |:-------------:|
