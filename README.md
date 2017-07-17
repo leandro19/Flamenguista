@@ -1,6 +1,6 @@
+# Commands (work in progress)
 <!-- Inline-style:
 ![alt text](http://www.maiortorcida.com/media/galeria/149/6/7/1/1/n_flamengo_escudo-9741176.png | width=50)
-#Commands (work in progress)
 | Command       | Output        |
 | ------------- |:-------------:|
 | `partida`| If Flamengo is playing, gives current score stats and rosters. If not, gives next game date and time|
