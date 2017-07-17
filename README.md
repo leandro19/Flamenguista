@@ -1,6 +1,4 @@
-Inline-style:
-![alt text](http://cache.images.core.optasports.com/soccer/teams/150x150/318.pn)
-# Commands (work in progress)
+# Commands (work in progress) ![alt text](http://cache.images.core.optasports.com/soccer/teams/150x150/318.png "Logo Title Text 1")
 <!--
 | Command       | Output        |
 | ------------- |:-------------:|
