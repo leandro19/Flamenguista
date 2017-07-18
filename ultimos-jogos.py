@@ -15,6 +15,7 @@ soup = BeautifulSoup(html, "html.parser")
 jogos = soup.find_all(class_="jogo anterior")
 
 print("%-10s%-30s%s" %("Data", "Competição", "Resultado"))
+print("-"*50)
 for jogo in jogos[-5:]:
     jogo = jogo.text
     date = jogo[:5]
