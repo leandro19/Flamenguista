@@ -22,8 +22,7 @@ for jogo in jogos[-5:]:
     date = list(date)
     date[0:2], date[3:] = date[3:] , date[0:2]
     date = "".join(date)
-    result = re.findall("[A-Z]{3}\d{1,2}×\d{1,2}[A-Z]{3}", jogo)
-    result = "".join(result)
+    result = re.findall("[A-Z]{3}\d{1,2}×\d{1,2}[A-Z]{3}", jogo)[0]
     result = re.sub('(\d{1,2}×\d{1,2})', r' \1 ', result)
     competition = re.sub("[^a-z]", "", jogo, flags=re.I)[:-17]
     competition = re.sub('([A-Z]|do)', r' \1', competition)
