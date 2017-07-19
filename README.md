@@ -4,11 +4,11 @@ These scripts allow you to see Flamengo's previous games, future games, and stan
 Run by typing `python <py file>` into terminal.
 Requires beautifulsoup4 and pytz libraries.
 
-| Command | Output |
+| Script | Output |
 | --- |---|
-|`proximos-jogos` | Next 5 games' dates, leagues/tournaments, and times. |
-|`ultimos-jogos` | Last 5 games' dates, leagues/tournaments, and scores. |
-|`tabela` | current season standings. |
+|`proximos-jogos.py` | Next 5 games' dates, leagues/tournaments, and times. |
+|`ultimos-jogos.py` | Last 5 games' dates, leagues/tournaments, and scores. |
+|`tabela.py` | current season standings. |
 
 ## Sample images
 ![Alt text](proximoScreen.png?raw=true)
