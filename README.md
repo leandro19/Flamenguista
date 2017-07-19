@@ -11,6 +11,6 @@ Requires beautifulsoup4 and pytz libraries.
 |`tabela` | current season standings. |
 
 ## Sample images
-![Alt text](/imgs/proximoScreen.png?raw=true)
-![Alt text](/imgs/ultimoScreen.png?raw=true)
-![Alt text](/imgs/tabelaScreen.png?raw=true)
+![Alt text](imgs/proximoScreen.png?raw=true "Next game example")
+![Alt text](imgs/ultimoScreen.png?raw=true "Past game example")
+![Alt text](imgs/tabelaScreen.png?raw=true "Rankings example")
