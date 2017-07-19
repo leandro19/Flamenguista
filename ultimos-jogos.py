@@ -1,6 +1,10 @@
 import re
 import requests
 from bs4 import BeautifulSoup
+from colors import bcolors
+
+
+
 
 team_url = "http://globoesporte.globo.com/futebol/times/flamengo/"
 
@@ -24,6 +28,21 @@ for jogo in jogos[-5:]:
     date = "".join(date)
     result = re.findall("[A-Z]{3}\d{1,2}×\d{1,2}[A-Z]{3}", jogo)[0]
     result = re.sub('(\d{1,2}×\d{1,2})', r' \1 ', result)
+
+    match = re.search("^F", result)
+    goals = re.findall('\d{1,2}',result)
+    if match:
+        if goals[0] > goals[1]:
+            result = bcolors.OKGREEN + result + bcolors.ENDC
+        elif goals[0] < goals[1]:
+            result = bcolors.FAIL + result + bcolors.ENDC
+    else:
+        if goals[0] < goals[1]:
+            result = bcolors.OKGREEN + result + bcolors.ENDC
+        elif goals[0] > goals[1]:
+            result = bcolors.FAIL + result + bcolors.ENDC
+
+
     competition = re.sub("[^a-z]", "", jogo, flags=re.I)[:-17]
     competition = re.sub('([A-Z]|do)', r' \1', competition)
     competition = competition.replace("Sub","Sub-20")
