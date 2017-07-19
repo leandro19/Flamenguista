@@ -33,14 +33,14 @@ for jogo in jogos[-5:]:
     goals = re.findall('\d{1,2}',result)
     if match:
         if goals[0] > goals[1]:
-            result = bcolors.OKGREEN + result + bcolors.ENDC
+            result = bcolors.GREEN + result + bcolors.ENDC
         elif goals[0] < goals[1]:
-            result = bcolors.FAIL + result + bcolors.ENDC
+            result = bcolors.RED + result + bcolors.ENDC
     else:
         if goals[0] < goals[1]:
-            result = bcolors.OKGREEN + result + bcolors.ENDC
+            result = bcolors.GREEN + result + bcolors.ENDC
         elif goals[0] > goals[1]:
-            result = bcolors.FAIL + result + bcolors.ENDC
+            result = bcolors.RED + result + bcolors.ENDC
 
 
     competition = re.sub("[^a-z]", "", jogo, flags=re.I)[:-17]

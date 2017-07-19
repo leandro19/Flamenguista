@@ -28,13 +28,30 @@ i = 1
 j = 0
 for time in times:
     teamStats = stats[j:j+8]
-    teamTup = (time.text,)
+    if time.text != "Flamengo":
+        teamTup = (time.text,)
+    else:
+        teamTup = (bcolors.RED + time.text + bcolors.ENDC,)# + "          ",)
+
     for stat in teamStats:
         teamTup += (stat,)
-    if i<10:
-        print(i,"%-18s%-5s%-5s%-5s%-5s%-5s%-5s%-5s%-4s"%teamTup)
+    rank = i
+    if i<5:
+        rank = bcolors.BLUE + str(i) + bcolors.ENDC
+    elif i<7:
+        rank = bcolors.CYAN + str(i)+bcolors.ENDC
+    elif i<13:
+        rank = bcolors.GREEN + str(i)+bcolors.ENDC
+    elif i>16:
+        rank = bcolors.RED + str(i)+bcolors.ENDC
+    if time.text == "Flamengo":
+        if i<10:
+            print(rank,"%-27s%-5s%-5s%-5s%-5s%-5s%-5s%-5s%-4s"%teamTup)
+        else: 
+            print(rank,"%-26s%-5s%-5s%-5s%-5s%-5s%-5s%-5s%-4s"%teamTup)
+    elif i<10:
+        print(rank,"%-18s%-5s%-5s%-5s%-5s%-5s%-5s%-5s%-4s"%teamTup)
     else: 
-        #print(teamTup)
-        print(i,"%-17s%-5s%-5s%-5s%-5s%-5s%-5s%-5s%-4s"%teamTup)
+        print(rank,"%-17s%-5s%-5s%-5s%-5s%-5s%-5s%-5s%-4s"%teamTup)
     i +=1
     j += 8
