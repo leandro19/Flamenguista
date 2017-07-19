@@ -10,8 +10,7 @@ Requires beautifulsoup4 and pytz libraries.
 |`ultimos-jogos` | Last 5 games' dates, times, and scores. |
 |`tabela` | current season standings. |
 
-##Sample images
-
+## Sample images
 ![Alt text](proximoScreen.png?raw=true)
 ![Alt text](ultimoScreen.png?raw=true)
 ![Alt text](tabelaScreen.png?raw=true)
