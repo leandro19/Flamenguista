@@ -11,6 +11,6 @@ Requires beautifulsoup4 and pytz libraries.
 |`tabela` | current season standings. |
 
 ## Sample images
-![Alt text](proximoScreen.png?raw=true)
-![Alt text](ultimoScreen.png?raw=true)
-![Alt text](tabelaScreen.png?raw=true)
+![Alt text](imgs/proximoScreen.png?raw=true)
+![Alt text](imgs/ultimoScreen.png?raw=true)
+![Alt text](imgs/tabelaScreen.png?raw=true)
