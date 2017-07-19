@@ -16,7 +16,7 @@ html = request.content
 #Instantiate our BS parser with the HTML and the kind of parser we want to use
 soup = BeautifulSoup(html, "html.parser")
 
-jogos = soup.find_all(class_="jogo proximo")
+jogos = soup.find_all(class_= re.compile("jogo [pv]"))
 
 print("%-10s%-10s%-29s%s" %("Data", "Tempo","Competição", "Jogo"))
 print("-"*55)
