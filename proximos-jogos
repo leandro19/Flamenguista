@@ -20,8 +20,8 @@ soup = BeautifulSoup(html, "html.parser")
 
 jogos = soup.find_all(class_= re.compile("jogo [pv]"))
 
-print("%-10s%-10s%-29s%s" %("Data", "Tempo","Competição", "Jogo"))
-print("-"*55)
+print("%-10s%-10s%-30s%s" %("Data", "Tempo","Competição", "Jogo"))
+print("-"*60)
 for jogo in jogos[:5]:
     jogo = jogo.text
     date = jogo[:5]
@@ -49,9 +49,19 @@ for jogo in jogos[:5]:
     eastern_dt = brazil_dt.astimezone(edt)
     time = eastern_dt.strftime("%H:%M")
 
-    game = re.findall("[A-Z]{3}×[A-Z]{3}", jogo)[0]
-    competition = re.sub("[^a-z]", "", jogo, flags=re.I)[:-6]
-    competition = re.sub("amanh|hoje","",competition)
+    game = re.findall("[A-Z]{3}\d*×\d*[A-Z]{3}", jogo)[0]
+    match = re.search("\d", game)
+    if match:
+        game = re.sub('(\d{1,2}×\d{1,2})', r' \1 ', game)
+        competition = re.sub("[^a-z]", "", jogo, flags=re.I)[:-17]
+    else: 
+        competition = re.sub("[^a-z]", "", jogo, flags=re.I)[:-6]
     competition = re.sub('([A-Z]|do)', r' \1', competition)
+    competition = re.sub("amanh|hoje","",competition)
     competition = competition.replace("Sub","Sub-20")
-    print("%-10s%-9s%-29s%s" %(gameday, time, competition, game))
+    if match:
+        print("%-10s%-9s%-28s%s" %(gameday, time, competition, game))
+    else:
+        print("%-10s%-9s%-30s%s" %(gameday, time, competition, game))
+
+
