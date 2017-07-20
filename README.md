@@ -1,7 +1,7 @@
 ![Alt text](http://cache.images.core.optasports.com/soccer/teams/150x150/318.png)
 These scripts allow you to see Flamengo's previous games, future games, and standing in the Brazilian league.
 # Commands
-Run by typing `./<script>` into terminal.
+Run by typing `./<script>` (no extension) into terminal.
 Requires beautifulsoup4 and pytz libraries.
 
 | Script | Output |
