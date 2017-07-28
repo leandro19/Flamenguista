@@ -43,7 +43,7 @@ for jogo in jogos[-5:]:
             result = bcolors.RED + result + bcolors.ENDC
 
 
-    competition = re.sub("[^a-z]", "", jogo, flags=re.I)[:-17]
-    competition = re.sub('([A-Z]|do)', r' \1', competition)
+    competition = re.sub("[^a-zÀ-ÿ\- ]", "", jogo, flags=re.I)
+    competition = re.sub('([A-Z]{3}×.*)', '', competition)
     competition = competition.replace("Sub","Sub-20")
     print("%-9s%-30s%s" %(date, competition, result))

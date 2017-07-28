@@ -53,15 +53,14 @@ for jogo in jogos[:5]:
     match = re.search("\d", game)
     if match:
         game = re.sub('(\d{1,2}×\d{1,2})', r' \1 ', game)
-        competition = re.sub("[^a-z]", "", jogo, flags=re.I)[:-17]
+        competition = re.sub("[^a-zÀ-ÿ\- ]", "", jogo, flags=re.I)
+        competition = re.sub('([A-Z]{3}\d*.*)', "", competition)
     else: 
-        competition = re.sub("[^a-z]", "", jogo, flags=re.I)[:-6]
-    competition = re.sub('([A-Z]|do)', r' \1', competition)
-    competition = re.sub("amanh|hoje","",competition)
+        competition = re.sub("[^a-zÀ-ÿ\- ]", "", jogo, flags=re.I)
+        competition = re.sub('([A-Z]{3}×.*)', "", competition)
+    competition = re.sub("amanhã|hoje","",competition)
     competition = competition.replace("Sub","Sub-20")
     if match:
         print("%-10s%-9s%-28s%s" %(gameday, time, competition, game))
     else:
         print("%-10s%-9s%-30s%s" %(gameday, time, competition, game))
-
-
