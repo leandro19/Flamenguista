@@ -50,7 +50,10 @@ for jogo in jogos[:5]:
     time = eastern_dt.strftime("%H:%M")
 
     game = re.findall("[A-Z]{3}\d*×\d*[A-Z]{3}", jogo)[0]
-    match = re.search("\d", game)
+    youthGame = re.search("Sub-\d*",jogo)
+    if youthGame:
+        youth = re.findall("Sub-\d*",jogo)[0]
+    match = re.search("(\d{1,2}×\d{1,2})", game)
     if match:
         game = re.sub('(\d{1,2}×\d{1,2})', r' \1 ', game)
         competition = re.sub("[^a-zÀ-ÿ\- ]", "", jogo, flags=re.I)
@@ -59,7 +62,8 @@ for jogo in jogos[:5]:
         competition = re.sub("[^a-zÀ-ÿ\- ]", "", jogo, flags=re.I)
         competition = re.sub('([A-Z]{3}×.*)', "", competition)
     competition = re.sub("amanhã|hoje","",competition)
-    competition = competition.replace("Sub","Sub-20")
+    if youthGame:
+        competition = competition.replace("Sub-",youth)
     if match:
         print("%-10s%-9s%-28s%s" %(gameday, time, competition, game))
     else:
