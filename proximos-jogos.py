@@ -37,15 +37,19 @@ for jogo in jogos[:5]:
         gameday[0:2], gameday[3:] = gameday[3:] , gameday[0:2]
         gameday = "".join(gameday)
 
-    time = re.findall('\d{1,2}:\d{1,2}', jogo)[0]
-    #Get local time as opposed to Rio time
-    fmt = "%d/%m %H:%M %Y"
-    game_time = datetime.strptime((date+" "+time+" "+ str(datetime.now().year)), fmt)
-    edt = timezone('US/Eastern')
-    rio_timezone = timezone('Brazil/East')
-    brazil_dt = rio_timezone.localize(game_time, is_dst=None)
-    eastern_dt = brazil_dt.astimezone(edt)
-    time = eastern_dt.strftime("%H:%M")
+    timeExist = re.findall('\d{1,2}:\d{1,2}', jogo)
+    if timeExist:
+        time = re.findall('\d{1,2}:\d{1,2}', jogo)[0]
+        #Get local time as opposed to Rio time
+        fmt = "%d/%m %H:%M %Y"
+        game_time = datetime.strptime((date+" "+time+" "+ str(datetime.now().year)), fmt)
+        edt = timezone('US/Eastern')
+        rio_timezone = timezone('Brazil/East')
+        brazil_dt = rio_timezone.localize(game_time, is_dst=None)
+        eastern_dt = brazil_dt.astimezone(edt)
+        time = eastern_dt.strftime("%H:%M")
+    else:
+        time = ""
 
     game = re.findall("[A-Z]{3}\d*×\d*[A-Z]{3}", jogo)[0]
     youthGame = re.search("Sub-\d*",jogo)
