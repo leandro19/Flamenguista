@@ -56,7 +56,7 @@ for jogo in jogos[:5]:
     game = re.findall("[A-Z]{3}\d*×\d*[A-Z]{3}", jogo)[0]
     youthGame = re.search("Sub-\d*",jogo)
     if youthGame:
-        youth = re.findall("Sub-\d*",jogo)[0]
+        youth = re.findall("Sub-\d{1,2}",jogo)[0]
     match = re.search("(\d{1,2}×\d{1,2})", game)
     if match:
         game = re.sub('(\d{1,2}×\d{1,2})', r' \1 ', game)

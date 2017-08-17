@@ -45,9 +45,9 @@ for jogo in jogos[-5:]:
             result = bcolors.RED + result + bcolors.ENDC
 
 
-    youthGame = re.search("Sub-\d*",jogo)
+    youthGame = re.search("Sub-\d{2}",jogo)
     if youthGame:
-        youth = re.findall("Sub-\d*",jogo)[0]
+        youth = re.findall("Sub-\d{2}",jogo)[0]
     competition = re.sub("[^a-zÀ-ÿ\- ]", "", jogo, flags=re.I)
     competition = re.sub('([A-Z]{3}×.*)', '', competition)
     if youthGame:
