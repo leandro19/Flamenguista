@@ -22,6 +22,7 @@ print("%-10s%-10s%-30s%s" %("Data", "Tempo","Competição", "Jogo"))
 print("-"*60)
 for jogo in jogos[:5]:
     jogo = jogo.text
+    jogo = re.sub('\n', "", jogo)
     date = jogo[:5]
     gameday = date
     today = date[0].lower()
@@ -54,16 +55,22 @@ for jogo in jogos[:5]:
     game = re.findall("[A-Z]{3}\d*×\d*[A-Z]{3}", jogo)[0]
     youthGame = re.search("Sub-\d*",jogo)
     if youthGame:
-        youth = re.findall("Sub-\d*",jogo)[0]
+        youth = re.findall("Sub-\d{1,2}",jogo)[0]
     match = re.search("(\d{1,2}×\d{1,2})", game)
     if match:
         game = re.sub('(\d{1,2}×\d{1,2})', r' \1 ', game)
         competition = re.sub("[^a-zÀ-ÿ\- ]", "", jogo, flags=re.I)
         competition = re.sub('([A-Z]{3}\d*.*)', "", competition)
+        competition = re.sub(" *× *", "", competition)
     else: 
         competition = re.sub("[^a-zÀ-ÿ\- ]", "", jogo, flags=re.I)
         competition = re.sub('([A-Z]{3}×.*)', "", competition)
     competition = re.sub("amanhã|hoje","",competition)
+    penalties = re.search("\(\d *× *\d\)",jogo)
+    if penalties:
+        pScore = re.findall("\(\d *× *\d\)",jogo)[0]
+        pScore = re.sub(" ","",pScore)
+        game = re.sub("×", pScore, game)
     if youthGame:
         competition = competition.replace("Sub-",youth)
     if match:
